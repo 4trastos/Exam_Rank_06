@@ -142,7 +142,8 @@ int		main(int ac, char **av)
 	bzero(&servaddr, sizeof(servaddr));
 
 	servaddr.sin_family = AF_INET;
-	servaddr.sin_addr.s_addr = htonl(2130706433);
+	//servaddr.sin_addr.s_addr = htonl(2130706433);
+	servaddr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
 	servaddr.sin_port = htons(atoi(av[1])); // replace 8080
 
 	if (bind(sockfd, (const struct sockaddr *)&servaddr, sizeof(servaddr)))
